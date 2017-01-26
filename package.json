@@ -1,0 +1,25 @@
+{
+  "name": "binners-project",
+  "version": "0.0.1",
+  "description": "Stand-alone web-based applications that connects users donating bottles to binners that collect them. http://binnersproject.org/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tendermario/binners-project.git"
+  },
+  "author": "Mario Viens",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tendermario/binners-project/issues"
+  },
+  "homepage": "https://github.com/tendermario/binners-project#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
+}
