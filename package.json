@@ -1,12 +1,12 @@
 {
-  "name": "hackathon-starter",
-  "version": "4.3.0",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "binners-project",
+  "version": "0.0.1",
+  "description": "Stand-alone web-based applications that connects users donating bottles to binners that collect them. http://binnersproject.org/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/tendermario/binners-project.git"
   },
-  "author": "Sahat Yalkabov",
+  "author": "Mario Viens",
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
