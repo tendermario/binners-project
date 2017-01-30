@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .page-header
+    h3 Create a new donation for pickup
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='Address') Address
+      .col-sm-7
+        input.form-control(type='address', name='address', id='address', placeholder='Address', autofocus, required)
+    .form-group
+      label.col-sm-3.control-label(for='date') Date
+      .col-sm-7
+        input.form-control(type='date', name='date', id='date', placeholder='Date', required)
+    .form-group
+      label.col-sm-3.control-label(for='time') Time
+      .col-sm-7
+        input.form-control(type='time', name='time', id='time', placeholder='Time', required)
+    .form-group
+      .col-sm-offset-3.col-sm-7
+        button.col-sm-3.btn.btn-primary(type='submit')
+          i.fa.fa-user
+          | Submit
