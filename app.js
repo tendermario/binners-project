@@ -136,10 +136,10 @@ app.post('/account/delete', passportConfig.isAuthenticated, userController.postD
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
 /**
- * Donation routes.
+ * Request Pickup routes.
  */
-app.get('/donate', userController.getDonate);
-app.post('/donate', userController.postDonate);
+app.get('/request', userController.getRequest);
+app.post('/request', userController.postRequest);
 
 /**
  * API examples routes.

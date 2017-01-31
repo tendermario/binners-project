@@ -11,7 +11,7 @@ const Request = require('../models/Request');
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/donate');
+    return res.redirect('/request');
   }
   res.render('account/login', {
     title: 'Login'
@@ -43,7 +43,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect('/donate');
+      res.redirect('/request');
     });
   })(req, res, next);
 };
@@ -376,23 +376,23 @@ exports.postForgot = (req, res, next) => {
 };
 
 /**
- * GET /donate
+ * GET /request
  * Request pickup recyclables page.
  */
-exports.getDonate = (req, res) => {
+exports.getRequest = (req, res) => {
   if (!req.user) {
     return res.redirect('/login');
   }
-  res.render('donate', {
+  res.render('request', {
     title: 'Request Pickup'
   });
 };
 
 /**
- * POST /donate
+ * POST /request
  * User creates a new donation.
  */
-exports.postDonate = (req, res) => {
+exports.postRequest = (req, res) => {
   // req.assert('date', 'Date must be in the past').len(4);
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
@@ -400,7 +400,7 @@ exports.postDonate = (req, res) => {
 
   if (errors) {
     req.flash('errors', errors);
-    return res.redirect('/donate');
+    return res.redirect('/request');
   }
 
   let requestData = {
@@ -416,9 +416,8 @@ exports.postDonate = (req, res) => {
 
   const request = new Request(requestData);
 
-  console.log(request);
-  // request.save((err) => {
-  //   if (err) { return next(err); }
+  request.save((err) => {
+    if (err) { return next(err); }
   res.redirect('/');
-  // });
+  });
 };
