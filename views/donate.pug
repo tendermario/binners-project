@@ -1,24 +1,28 @@
 extends layout
 
 block content
-  .page-header
-    h3 Create a new donation for pickup
-  form.form-horizontal(method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label.col-sm-3.control-label(for='Address') Address
-      .col-sm-7
-        input.form-control(type='address', name='address', id='address', placeholder='Address', autofocus, required)
-    .form-group
-      label.col-sm-3.control-label(for='date') Date
-      .col-sm-7
-        input.form-control(type='date', name='date', id='date', placeholder='Date', required)
-    .form-group
-      label.col-sm-3.control-label(for='time') Time
-      .col-sm-7
-        input.form-control(type='time', name='time', id='time', placeholder='Time', required)
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        button.col-sm-3.btn.btn-primary(type='submit')
-          i.fa.fa-user
-          | Submit
+  .col-sm-offset-3.col-sm-7
+    .page-header
+      h3 Create a new donation for pickup
+    form.form-horizontal(id='donate', method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      .form-group
+        label.col-sm-2.control-label(for='address') Address
+        .col-sm-7
+          input.form-control(type='address', name='address', id='address', placeholder='Address', autofocus, required)
+      .form-group
+        label.col-sm-2.control-label(for='date') Date
+        .col-sm-7
+          input.form-control(type='date', name='date', id='date', required)
+      .form-group
+        label.col-sm-2.control-label(for='time') Time
+        .col-sm-7
+          input.form-control(type='time', name='time', id='time', required)
+      .form-group
+        label.col-sm-2.control-label(for='note') Note
+        .col-sm-7
+          textarea.form-control(type='text', name='note', id='note', placeholder='E.g. Inside main entrance / Ask reception for key to bins')
+      .form-group
+        .col-sm-offset-2.col-sm-7
+          button.col-sm-3.btn.btn-primary(type='submit')
+            | Submit
