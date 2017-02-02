@@ -28,9 +28,11 @@ exports.postRequest = (req, res) => {
     req.flash('errors', errors);
     return res.redirect('requests/new');
   }
-
+  console.log(req.user);
   let requestData = {
     user_id: req.user.id,
+    name: req.user.profile.name,
+    email: req.user.email,
     address: req.body.address,
     date: req.body.date,
     time: req.body.time,
