@@ -72,7 +72,7 @@
     "supertest": "^2.0.1"
   },
   "engines": {
-    "npm": "3.10.10"
+    "npm": "3.10.10",
     "node": "6.9.4"
   },
   "eslintConfig": {
