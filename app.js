@@ -34,6 +34,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const requestsController = require('./controllers/requests');
 
 /**
  * API keys and Passport configuration.
@@ -138,8 +139,9 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 /**
  * Request Pickup routes.
  */
-app.get('/request', userController.getRequest);
-app.post('/request', userController.postRequest);
+app.get('/requests/new', requestsController.getRequest);
+app.post('/requests/new', requestsController.postRequest);
+app.get('/requests', requestsController.getRequests);
 
 /**
  * API examples routes.

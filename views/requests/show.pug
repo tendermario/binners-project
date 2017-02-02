@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  .col-sm-13
+    .page-header
+      h3 Your Binner pickup requests
+      ul
+        .form-group
+          label.col-sm-3.control-label(for='email') Address
+          label.col-sm-2.control-label(for='email') Pickup Date
+          label.col-sm-2.control-label(for='email') Requested Time
+          label.col-sm-5.control-label(for='email') Note
+        each request in requests
+          form.form-horizontal(action='/requests/update', method='POST')
+            input(type='hidden', name='_csrf', value=_csrf)
+            .form-group
+              .col-sm-3
+                input.form-control(type='text', name='address', class='address', value=request.address)
+              .col-sm-2
+                input.form-control(type='text', name='date', class='date', value=request.date)
+              .col-sm-2
+                input.form-control(type='text', name='time', class='time', value=request.time)
+              .col-sm-3
+                input.form-control(type='text', name='note', class='note', value=request.note)
+              .col-sm-2
+                button.btn.btn.btn-primary(type='submit')
+                  i.fa.fa-pencil
+                  | Edit

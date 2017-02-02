@@ -3,7 +3,6 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User');
-const Request = require('../models/Request');
 
 /**
  * GET /login
@@ -11,7 +10,7 @@ const Request = require('../models/Request');
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/request');
+    return res.redirect('/requests/new');
   }
   res.render('account/login', {
     title: 'Login'
@@ -43,7 +42,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect('/request');
+      res.redirect('/requests/new');
     });
   })(req, res, next);
 };
@@ -372,52 +371,5 @@ exports.postForgot = (req, res, next) => {
   ], (err) => {
     if (err) { return next(err); }
     res.redirect('/forgot');
-  });
-};
-
-/**
- * GET /request
- * Request pickup recyclables page.
- */
-exports.getRequest = (req, res) => {
-  if (!req.user) {
-    return res.redirect('/login');
-  }
-  res.render('request', {
-    title: 'Request Pickup'
-  });
-};
-
-/**
- * POST /request
- * User creates a new donation.
- */
-exports.postRequest = (req, res) => {
-  // req.assert('date', 'Date must be in the past').len(4);
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
-
-  const errors = req.validationErrors();
-
-  if (errors) {
-    req.flash('errors', errors);
-    return res.redirect('/request');
-  }
-
-  let requestData = {
-    id: req.user.id,
-    address: req.body.address,
-    date: req.body.date,
-    time: req.body.time,
-    // type: req.body.type,
-    // amount: req.body.amount,
-    note: req.body.note
-    // recurring: req.body.recurring
-  };
-
-  const request = new Request(requestData);
-
-  request.save((err) => {
-    if (err) { return next(err); }
-  res.redirect('/');
   });
 };

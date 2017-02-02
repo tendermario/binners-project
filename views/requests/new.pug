@@ -1,10 +1,10 @@
-extends layout
+extends ../layout
 
 block content
   .col-sm-offset-3.col-sm-7
     .page-header
-      h3 Create a new request for recyclables pickup
-    form.form-horizontal(id='donate', method='POST')
+      h3 Create a new binners pickup request
+    form.form-horizontal(id='request', method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
         label.col-sm-2.control-label(for='address') Address
