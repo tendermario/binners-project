@@ -3,7 +3,8 @@
  * Home page.
  */
 exports.index = (req, res) => {
-  res.render('home', {
-    title: 'Home'
-  });
+  if (req.user)
+    res.redirect('requests/new');
+  else
+    res.redirect('login');
 };
