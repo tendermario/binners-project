@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const User = require('../models/User');
 
-const requestSchema = new mongoose.Schema({
-  user_id: String,
-  name: String,
-  email: String,
+const Schema = mongoose.Schema;
+
+const requestSchema = new Schema({
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
   address: String,
   date: String,
   time: String,

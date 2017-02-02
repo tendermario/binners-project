@@ -28,11 +28,8 @@ exports.postRequest = (req, res) => {
     req.flash('errors', errors);
     return res.redirect('requests/new');
   }
-  console.log(req.user);
   let requestData = {
-    user_id: req.user.id,
-    name: req.user.profile.name,
-    email: req.user.email,
+    user: req.user.id,
     address: req.body.address,
     date: req.body.date,
     time: req.body.time,
@@ -58,16 +55,13 @@ exports.getRequests = (req, res) => {
   if (!req.user) {
     return res.redirect('/login');
   }
-
-  // find the requests for this person
-
-  Request
-    .find({ user_id: req.user.id })
-    .sort({ _id: -1 })
-    .limit(10)
-    .exec((err, requests) => {
-      res.title = 'Show Requests'
-      console.log(requests);
-      res.render('requests/show', {requests});
-    });
+    Request
+      .find({ user: req.user.id })
+      .populate('user')
+      .sort({ _id: -1 })
+      .limit(10)
+      .exec((err, requests) => {
+        res.title = 'Show Requests'
+        res.render('requests/show', {requests});
+      });
 };
