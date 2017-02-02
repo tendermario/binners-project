@@ -55,6 +55,21 @@ exports.getRequests = (req, res) => {
   if (!req.user) {
     return res.redirect('/login');
   }
+
+  // find the requests for this person
+
+  // if (req.user.admin) {
+  //   Request
+  //     .find()
+  //     .populate('user')
+  //     .sort({ _id: -1 })
+  //     .limit(30)
+  //     .exec((err, requests) => {
+  //       res.title = 'Show Requests'
+  //       res.render('requests/show', {requests});
+  //     });
+  // } else {
+  // }
     Request
       .find({ user: req.user.id })
       .populate('user')
