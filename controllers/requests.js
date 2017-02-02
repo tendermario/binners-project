@@ -61,8 +61,8 @@ exports.getRequests = (req, res) => {
 
   Request
     .find({ user_id: req.user.id })
-    // .sort({ _id: -1 })
-    // .limit(5)
+    .sort({ _id: -1 })
+    .limit(10)
     .exec((err, requests) => {
       res.title = 'Show Requests'
       console.log(requests);
