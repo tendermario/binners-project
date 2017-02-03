@@ -21,7 +21,7 @@ const sass = require('node-sass-middleware');
 const multer = require('multer');
 
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
-
+const db_url = process.env.MONGOLAB_URI || process.env.MONGODB_URI
 /**
  * Uncomment to load test environment variables from .env file, where API keys and passwords are configured.
  */
@@ -50,7 +50,7 @@ const app = express();
  * Connect to MongoDB.
  */
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGODB_URI);
+mongoose.connect(db_url);
 mongoose.connection.on('error', () => {
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
   process.exit();
@@ -78,7 +78,7 @@ app.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
   store: new MongoStore({
-    url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
+    url: db_url,
     autoReconnect: true
   })
 }));
