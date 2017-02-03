@@ -20,9 +20,10 @@ exports.getRequest = (req, res) => {
  */
 exports.postRequest = (req, res) => {
   // req.assert('date', 'Date must be in the past').len(4);
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
+  // req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   const errors = req.validationErrors();
+  console.log(errors);
 
   if (errors) {
     req.flash('errors', errors);
