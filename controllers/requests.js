@@ -44,7 +44,7 @@ exports.postRequest = (req, res) => {
 
   request.save((err) => {
     if (err) { return next(err); }
-  res.redirect('/');
+  res.redirect('/requests');
   });
 };
 
