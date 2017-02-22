@@ -23,7 +23,6 @@ exports.postRequest = (req, res) => {
   // req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   const errors = req.validationErrors();
-  console.log(errors);
 
   if (errors) {
     req.flash('errors', errors);
@@ -49,6 +48,60 @@ exports.postRequest = (req, res) => {
 };
 
 /**
+ * POST /request/update
+ * Update a request.
+ */
+exports.putRequest = (req, res) => {
+
+  const errors = req.validationErrors();
+  if (errors) {
+    console.log(errors);
+    req.flash('errors', errors);
+    return res.redirect('back');
+  }
+
+  let newData = {
+    address: req.body.address,
+    date: req.body.date,
+    time: req.body.time,
+    // type: req.body.type,
+    // amount: req.body.amount,
+    note: req.body.note
+    // recurring: req.body.recurring
+  };
+
+  Request
+    .update(
+      { _id: req.body.id },
+      { $set: newData },
+      (err) => {
+
+        if (err) {
+          req.flash('errors', errors);
+          return res.redirect('back');
+        }
+      res.redirect('back') }
+      );
+};
+
+/**
+ * POST /request/delete
+ * Deletes a request.
+ */
+exports.deleteRequest = (req, res) => {
+  Request.remove(
+    { _id: req.body.id },
+    (err) => {
+      if (err) {
+        console.log("couldn't delete. Doesn't exist?");
+        res.redirect('back');
+      } else {
+        res.redirect('back');
+      }
+  })
+}
+
+/**
  * GET /request/show
  * Show pickups for this user.
  */
@@ -56,26 +109,30 @@ exports.getRequests = (req, res) => {
   if (!req.user) {
     return res.redirect('/login');
   }
-
-  // find the requests for this person
-
-  // if (req.user.admin) {
-  //   Request
-  //     .find()
-  //     .populate('user')
-  //     .sort({ _id: -1 })
-  //     .limit(30)
-  //     .exec((err, requests) => {
-  //       res.title = 'Show Requests'
-  //       res.render('requests/show', {requests});
-  //     });
-  // } else {
-  // }
     Request
       .find({ user: req.user.id })
       .populate('user')
       .sort({ _id: -1 })
       .limit(10)
+      .exec((err, requests) => {
+        res.title = 'Show Requests'
+        res.render('requests/show', {requests});
+      });
+};
+
+/**
+ * GET /request/show
+ * Show pickups for this user.
+ */
+exports.getAdminRequests = (req, res) => {
+  if (!req.user) {
+    return res.redirect('/login');
+  }
+    Request
+      .find()
+      .populate('user')
+      .sort({ _id: -1 })
+      .limit(20)
       .exec((err, requests) => {
         res.title = 'Show Requests'
         res.render('requests/show', {requests});

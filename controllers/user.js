@@ -86,9 +86,15 @@ exports.postSignup = (req, res, next) => {
     return res.redirect('/signup');
   }
 
+  let admin = false;
+  if (req.body.email.includes("@binnersproject.org")) {
+    admin = true;
+  }
+
   const user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    admin: admin
   });
 
   User.findOne({ email: req.body.email }, (err, existingUser) => {

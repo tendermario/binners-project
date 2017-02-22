@@ -1,8 +1,17 @@
 extends ../layout
 
+
 block content
   .col-sm-offset-3.col-sm-7
     .page-header
+      script.
+        var date = new Date();
+        var d = date.getDate(date);
+        var m = date.getMonth(date);
+        if (m < 10)
+          m = '0' + m;
+        var y = date.getFullYear(date);
+        var day = y + "-" + m + "-" + d;
       h3 Create a new binners pickup request
     form.form-horizontal(id='request', method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
@@ -13,11 +22,11 @@ block content
       .form-group
         label.col-sm-2.control-label(for='date') Date
         .col-sm-7
-          input.form-control(type='date', name='date', id='date', required)
+          input.form-control(type='date', name='date', id='date', value=day, required)
       .form-group
         label.col-sm-2.control-label(for='time') Time
         .col-sm-7
-          input.form-control(type='time', name='time', id='time', required)
+          input.form-control(type='time', name='time', id='time', value='15:00', required)
       .form-group
         label.col-sm-2.control-label(for='note') Note
         .col-sm-7

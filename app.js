@@ -141,6 +141,10 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 app.get('/requests/new', requestsController.getRequest);
 app.post('/requests/new', requestsController.postRequest);
 app.get('/requests', requestsController.getRequests);
+app.post('/request/delete', requestsController.deleteRequest);
+app.post('/request/update', requestsController.putRequest);
+// merge into one ^ v in the route, ideally
+app.get('/requests/admin', requestsController.getAdminRequests);
 
 /**
  * API examples routes.
