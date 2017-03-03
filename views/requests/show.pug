@@ -5,12 +5,12 @@ block content
     .page-header
       h3 Your Binner pickup requests
     ul
-      label.col-sm-3.control-label Requester
-      label.col-sm-2.control-label Email
-      label.col-sm-3.control-label Address
-      label.col-sm-2.control-label Pickup Date
-      label.col-sm-2.control-label Requested Time
       each request in requests
+        label.col-sm-3.control-label Requester
+        label.col-sm-2.control-label Email
+        label.col-sm-3.control-label Address
+        label.col-sm-2.control-label Pickup Date
+        label.col-sm-2.control-label Requested Time
         .form-group.row
           form(action='/request/update', method='POST')
             input(type='hidden', name='_csrf', value=_csrf)
@@ -31,6 +31,11 @@ block content
         .form-group.row
           .col-sm-8
             input.form-control(type='text', name='note', class='note', value=request.note)
+          if request.assigned
+            .col-sm-8
+              label.col-sm-2.control-label Binner Assigned
+                input.form-control(type='text', name='assigned', class='assigned', value=request.assigned)
+        .form-group.row
           .col-sm-1
             button.btn.btn-primary(type='submit')
               i.fa.fa-pencil

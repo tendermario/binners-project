@@ -125,7 +125,7 @@ exports.getRequests = (req, res) => {
  * Show pickups for this user.
  */
 exports.getAdminRequests = (req, res) => {
-  if (!req.user) {
+  if (!req.user.admin) {
     return res.redirect('/login');
   }
     Request
