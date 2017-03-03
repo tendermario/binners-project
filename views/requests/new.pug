@@ -4,14 +4,16 @@ extends ../layout
 block content
   .col-sm-offset-3.col-sm-7
     .page-header
-      script.
-        var date = new Date();
-        var d = date.getDate(date);
-        var m = date.getMonth(date);
-        if (m < 10)
-          m = '0' + m;
-        var y = date.getFullYear(date);
-        var day = y + "-" + m + "-" + d;
+      - var date = new Date();
+      - var d = date.getDate(date);
+      - if (d < 10)
+      -   d = '0' + d;
+      - var m = date.getMonth(date);
+      - m++;
+      - if (m < 10)
+      -   m = '0' + m;
+      - var y = date.getFullYear(date);
+      - var day = y + "-" + m + "-" + d;
       h3 Create a new binners pickup request
     form.form-horizontal(id='request', method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
