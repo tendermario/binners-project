@@ -30,36 +30,21 @@ block content
         .col-sm-7
           input.form-control(type='time', name='time', id='time', value='15:00', required)
       .form-group
-        label.col-sm-2.control-label(for='time') Bags of Redeemables
-        .btn-group(data-toggle="buttons")
-        .col-sm-3
-          label(for='small-bag') Small Bags
-          select.form-control(type='small-bag', name='small-bag', id='small-bag', placeholder='0')
-            option 0
-            option 1
-            option 2
-            option 3
-            option 4
-            option 5
-            option 6
-            option 7
-            option 8
-            option 9
-          small.form-text.text-muted 1 small bag = 10 containers
-        .col-sm-3
-          label(for='large-bag') Large Bags
-          select.form-control(type='large-bag', name='large-bag', id='large-bag', placeholder='0')
-            option 0
-            option 1
-            option 2
-            option 3
-            option 4
-            option 5
-            option 6
-            option 7
-            option 8
-            option 9
-          small.form-text.text-muted 1 large bag = 120 containers
+        label.col-sm-2.control-label(for='time') Number of Bottles
+        .col-sm-7.btn-group(data-toggle="buttons")
+          label.btn.btn-primary.btn-block
+            input(type="radio" name="options" id="option1" autocomplete="off")
+            | 15-50
+          label.btn.btn-primary.btn-block
+            input(type="radio" name="options" id="option1" autocomplete="off")
+            | 51-100
+          label.btn.btn-primary.btn-block
+            input(type="radio" name="options" id="option1" autocomplete="off")
+            | 100+
+      .form-group.hidden
+        label.col-sm-2.control-label(for='amount') Estimated amount
+        .col-sm-7
+          input.form-control(type='text', name='amount', id='amount', placeholder='# of containers', autofocus)
       .form-group
         label.col-sm-2.control-label(for='glass') Glass Percentage
         .col-sm-7

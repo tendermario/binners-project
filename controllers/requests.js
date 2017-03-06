@@ -9,7 +9,7 @@ exports.getRequest = (req, res) => {
   if (!req.user) {
     return res.redirect('/login');
   }
-  res.render('requests/new', {
+  res.render('requests/new-buttons', {
     title: 'Request Pickup'
   });
 };
