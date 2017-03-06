@@ -3,9 +3,12 @@ extends layout
 block content
   .col-sm-offset-3.col-sm-7
     .page-header
-      h3 Contact Form
-      p.lead This page is under construction. If you have any concerns, please reach out directly to me at marviens@gmail.com, or to the binners organization at info@binnersproject.org. If you wish to request a pickup, please log in.
-
+      h3 Contact
+      hr
+      p.lead General pick-up inquiries: 
+        a(href="mailto:info@binnersproject.org") info@binnersproject.org
+      p.lead If you wish to request a pickup, please log in.
+      p.lead Website concerns or feedback: 
     form.form-horizontal(method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
