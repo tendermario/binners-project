@@ -6,45 +6,46 @@ block content
       h3 Your Binner pickup requests
     ul
       each request in requests
-        label.col-sm-3.control-label Requester
-        label.col-sm-2.control-label Email
-        label.col-sm-3.control-label Address
-        label.col-sm-2.control-label Pickup Date
-        label.col-sm-2.control-label Requested Time
-        .form-group.row
-          form(action='/request/update', method='POST')
-            input(type='hidden', name='_csrf', value=_csrf)
-            input(type='hidden', name='id', value=request.id)
-            .col-sm-3
-              if request.user
-                input.form-control(type='text', name='name', class='name', value=request.user.profile.name, readonly)
-              else
-                input.form-control(type='text', name='name', class='name', value="no name entered", readonly)
-            .col-sm-2
-              input.form-control(type='textarea', rows="3", name='address', class='address', value=request.user.email, readonly)
-            .col-sm-3
-              input.form-control(type='textarea', rows="3", name='address', class='address', value=request.address)
-            .col-sm-2
-              input.form-control(type='text', name='date', class='date', value=request.date)
-            .col-sm-2
-              input.form-control(type='text', name='time', class='time', value=request.time)
-        .form-group.row
-          .col-sm-8
-            input.form-control(type='text', name='note', class='note', value=request.note)
-          if request.assigned
+        form(action='/request/update', method='POST')
+          input(type='hidden', name='_csrf', value=_csrf)
+          input(type='hidden', name='id', value=request.id)
+          label.col-sm-3.control-label Requester
+          label.col-sm-2.control-label Email
+          label.col-sm-3.control-label Address
+          label.col-sm-2.control-label Pickup Date
+          label.col-sm-2.control-label Requested Time
+          .form-group.row
+              .col-sm-3
+                if request.user
+                  input.form-control(type='text', name='name', class='name', value=request.user.profile.name, readonly)
+                else
+                  input.form-control(type='text', name='name', class='name', value="no name entered", readonly)
+              .col-sm-2
+                input.form-control(type='textarea', rows="3", name='address', class='address', value=request.user.email, readonly)
+              .col-sm-3
+                input.form-control(type='textarea', rows="3", name='address', class='address', value=request.address)
+              .col-sm-2
+                input.form-control(type='text', name='date', class='date', value=request.date)
+              .col-sm-2
+                input.form-control(type='text', name='time', class='time', value=request.time)
+          label.col-sm-8.control-label Note for Binner
+          label.col-sm-4.control-label Binner
+          .form-group.row
             .col-sm-8
-              label.col-sm-2.control-label Binner Assigned
-                input.form-control(type='text', name='assigned', class='assigned', value=request.assigned)
-        .form-group.row
-          .col-sm-1
-            button.btn.btn-primary(type='submit')
-              i.fa.fa-pencil
-              | Update
-          .col-sm-1
-          form(action='/request/delete', method='POST')
-            input(type='hidden', name='_csrf', value=_csrf)
-            input(type='hidden', name='id', value=request.id)
-            button.btn.btn-danger(type='submit')
-              i.fa.fa-close
-              | Delete
-            hr
+              input.form-control(type='text', name='note', class='note', value=request.note)
+            if request.binner
+              .col-sm-4
+                input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
+            else if user.admin
+              .col-sm-4
+                input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
+          .form-group.row
+            .col-sm-2
+              button.btn.btn-primary(type='submit')
+                i.fa.fa-pencil
+                | Update
+            .col-sm-2
+              button.btn.btn-danger(formaction="/request/delete")
+                i.fa.fa-close
+                | Delete
+              hr
