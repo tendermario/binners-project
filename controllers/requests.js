@@ -112,8 +112,10 @@ exports.getRequests = (req, res) => {
       .sort({ _id: -1 })
       .limit(10)
       .exec((err, requests) => {
-        res.title = 'Show Requests'
-        res.render('requests/show', {requests});
+        res.render('requests/show', {
+          requests,
+          title: 'Show Requests'
+        });
       });
 };
 
@@ -131,7 +133,9 @@ exports.getAdminRequests = (req, res) => {
       .sort({ _id: -1 })
       .limit(20)
       .exec((err, requests) => {
-        res.title = 'Show Requests'
-        res.render('requests/show', {requests});
+        res.render('requests/show', {
+          requests,
+          title: 'Show All Requests'
+        });
       });
 };
