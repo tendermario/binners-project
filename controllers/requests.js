@@ -28,18 +28,17 @@ exports.postRequest = (req, res) => {
     req.flash('errors', errors);
     return res.redirect('requests/new');
   }
-  let requestData = {
+
+  const request = new Request({
     user: req.user.id,
     address: req.body.address,
     date: req.body.date,
     time: req.body.time,
-    // type: req.body.type,
-    // amount: req.body.amount,
-    note: req.body.note
-    // recurring: req.body.recurring
-  };
-
-  const request = new Request(requestData);
+    glass: req.body.glass,
+    amount: req.body.amount,
+    note: req.body.note,
+    recurring: req.body.recurring
+  });
 
   request.save((err) => {
     if (err) { return next(err); }
@@ -60,20 +59,18 @@ exports.putRequest = (req, res) => {
     return res.redirect('back');
   }
 
-  let newData = {
-    address: req.body.address,
-    date: req.body.date,
-    time: req.body.time,
-    // type: req.body.type,
-    // amount: req.body.amount,
-    note: req.body.note
-    // recurring: req.body.recurring
-  };
-
   Request
     .update(
       { _id: req.body.id },
-      { $set: newData },
+      { $set: {
+    address: req.body.address,
+    date: req.body.date,
+    time: req.body.time,
+    glass: req.body.glass,
+    amount: req.body.amount,
+    note: req.body.note,
+    recurring: req.body.recurring
+  } },
       (err) => {
 
         if (err) {

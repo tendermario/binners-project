@@ -8,7 +8,7 @@ const requestSchema = new Schema({
   address: String,
   date: String,
   time: String,
-  type: String,
+  glass: String,
   amount: String,
   note: String,
   recurring: String,

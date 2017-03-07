@@ -29,16 +29,21 @@ block content
               .col-sm-2
                 input.form-control(type='text', name='time', class='time', value=request.time)
           label.col-sm-8.control-label Note for Binner
-          label.col-sm-4.control-label Binner
+          label.col-sm-2.control-label Containers
+          label.col-sm-2.control-label Amount Glass
           .form-group.row
             .col-sm-8
-              input.form-control(type='text', name='note', class='note', value=request.note)
-            if request.binner
-              .col-sm-4
-                input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
-            else if user.admin
-              .col-sm-4
-                input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
+              input.form-control(type='text', name='note', class='text', value=request.note)
+            .col-sm-2
+              input.form-control(type='text', name='amount', class='text', value=request.amount)
+            .col-sm-2
+              input.form-control(type='text', name='glass', class='text', value=request.glass)
+          //-   if request.binner
+          //-     .col-sm-4
+          //-       input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
+          //-   else if user.admin
+          //-     .col-sm-4
+          //-       input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
           .form-group.row
             .col-sm-2
               button.btn.btn-primary(formaction='/request/update')

@@ -30,16 +30,16 @@ block content
         .col-sm-7
           input.form-control(type='time', name='time', id='time', value='15:00', required)
       .form-group
-        label.col-sm-2.control-label(for='time') Number of Bottles
+        label.col-sm-2.control-label(for='amount') Number of Bottles
         .col-sm-7.btn-group(data-toggle="buttons")
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="option1" autocomplete="off")
+            input(type="radio" name="options" id="amount-small")
             | 15-50
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="option1" autocomplete="off")
+            input(type="radio" name="options" id="amount-medium")
             | 51-100
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="option1" autocomplete="off")
+            input(type="radio" name="options" id="amount-large")
             | 100+
       .form-group.hidden
         label.col-sm-2.control-label(for='amount') Estimated amount
@@ -48,7 +48,7 @@ block content
       .form-group
         label.col-sm-2.control-label(for='glass') Glass Percentage
         .col-sm-7
-          select.form-control(type='glass', name='glass', id='glass', value='100%', required)
+          select.form-control(type='glass', name='glass', id='glass', value="0%", required)
             option 0%
             option 25%
             option 50%
