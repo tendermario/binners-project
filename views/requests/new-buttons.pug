@@ -33,18 +33,18 @@ block content
         label.col-sm-2.control-label(for='amount') Number of Bottles
         .col-sm-7.btn-group(data-toggle="buttons")
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="amount-small")
+            input(type="radio" name="amount" id="amount-small" value="15-50")
             | 15-50
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="amount-medium")
+            input(type="radio" name="amount" id="amount-medium" value="51-100")
             | 51-100
           label.btn.btn-primary.btn-block
-            input(type="radio" name="options" id="amount-large")
+            input(type="radio" name="amount" id="amount-large" value="100+")
             | 100+
-      .form-group.hidden
-        label.col-sm-2.control-label(for='amount') Estimated amount
-        .col-sm-7
-          input.form-control(type='text', name='amount', id='amount', placeholder='# of containers', autofocus)
+      //- .form-group
+      //-   label.col-sm-2.control-label(for='amount') Estimated amount
+      //-   .col-sm-7
+      //-     input.form-control(type='text', name='amount', id='amount', placeholder='# of containers', autofocus)
       .form-group
         label.col-sm-2.control-label(for='glass') Glass Percentage
         .col-sm-7
