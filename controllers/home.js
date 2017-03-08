@@ -6,5 +6,7 @@ exports.index = (req, res) => {
   if (req.user)
     res.redirect('requests/new');
   else
-    res.redirect('signup');
+    res.render('home', {
+      title: 'Home'
+    });
 };
