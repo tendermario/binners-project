@@ -12,6 +12,10 @@
     font-family: "Oxygen";
     src: url(/fonts/Oxygen.ttf) format("truetype");
 }
+@font-face {
+    font-family: "gotham med";
+    src: url(/fonts/gotham-medium.ttf) format("truetype");
+}
 
 // Scaffolding
 // -------------------------
@@ -24,7 +28,7 @@ html {
 body {
   padding-top: 60px;
   margin-bottom: 75px;
-  font-family: "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "gotham med", "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 footer {
