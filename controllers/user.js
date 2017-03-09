@@ -94,6 +94,9 @@ exports.postSignup = (req, res, next) => {
 
   const user = new User({
     email: req.body.email,
+    profile: {
+      name: req.body.name // to keep convention with Facebook credentials
+      }, 
     password: req.body.password,
     admin: admin
   });
