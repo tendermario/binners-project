@@ -4,6 +4,14 @@ const nodemailer = require('nodemailer');
 const passport = require('passport');
 const User = require('../models/User');
 
+const transporter = nodemailer.createTransport({
+  service: 'SendGrid',
+  auth: {
+    user: process.env.SENDGRID_USER,
+    pass: process.env.SENDGRID_PASSWORD
+  }
+});
+
 /**
  * GET /login
  * Login page.
@@ -90,6 +98,21 @@ exports.postSignup = (req, res, next) => {
   let admin = false;
   if (req.body.email.includes("@binnersproject.org")) {
     admin = true;
+
+    const mailOptions = {
+      to: 'marviens@gmail.com',
+      from: 'Binners Project',
+      subject: 'Binners Project - Admin Created',
+      text: `${req.body.email} account was created.`
+    };
+
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) {
+        req.flash('errors', { msg: err.message });
+        return res.redirect('/signup');
+      }
+      req.flash('success', { msg: 'Email has been sent successfully!' });
+    });
   }
 
   const user = new User({

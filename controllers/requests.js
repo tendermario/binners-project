@@ -1,5 +1,14 @@
 const passport = require('passport');
 const Request = require('../models/Request');
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+  service: 'SendGrid',
+  auth: {
+    user: process.env.SENDGRID_USER,
+    pass: process.env.SENDGRID_PASSWORD
+  }
+});
+
 
 /**
  * GET /request/new
@@ -42,6 +51,33 @@ exports.postRequest = (req, res) => {
 
   request.save((err) => {
     if (err) { return next(err); }
+
+  const mailOptions = {
+      to: 'marviens@gmail.com',
+      from: '"Binners Project" <info@binnersproject.org>',
+      subject: `Binners Project - New Pickup! ${req.user.profile.name}`,
+      html: `🎉🎉🎉<br/><br/>
+
+      <em>${req.user.profile.name}</em> created a <a href="http://binners-project.herokuapp.com/requests/admin">new pickup</a>:<br/><br/>
+
+      User email: ${req.user.email}<br/>
+      Address: ${req.body.address}<br/>
+      Date: ${req.body.date}<br/>
+      Time: ${req.body.time}<br/>
+      Glass: ${req.body.glass}<br/>
+      Amount: ${req.body.amount}<br/>
+      Note: ${req.body.note}<br/>
+      Recurring: ${req.body.recurring}`
+
+    };
+
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) {
+        req.flash('errors', { msg: err.message });
+      }
+      req.flash('success', { msg: 'Email has been sent successfully!' });
+    });
+
   res.redirect('/requests');
   });
 };
