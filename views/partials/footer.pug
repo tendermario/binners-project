@@ -1,14 +1,5 @@
 footer
   .container.text-center
     ul.pull-right.list-inline
-      li
-        a(href='https://github.com/tendermario/binners-project') GitHub Project
-      li.divider
-      li
-        a(href='https://github.com/tendermario/binners-project/issues') Issues
-      li.divider
-      li
-        a(href='/api') API Examples
-      li.divider
-      li
-        a(href='/status') Status
+      li(class=(title == 'Contact Us') ? 'active' : undefined)
+        a(href='/contact') Have a Question? Contact Us

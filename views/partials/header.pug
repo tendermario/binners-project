@@ -10,13 +10,11 @@
         | Binners' Project
     .collapse.navbar-collapse
       ul.nav.navbar-nav
-        li(class=(title == 'Home') ? 'active' : undefined)
-          a(href='/') New
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
+        li(class=(title == 'New') ? 'active' : undefined)
+          a(href='/') Request A New Pickup
         if user
           li(class=(title == 'Requests') ? 'active' : undefined)
-            a(href='/requests') Requests
+            a(href='/requests') My Requests
         if user
           if user.admin
             li(class=(title == 'All Requests') ? 'active' : undefined)
