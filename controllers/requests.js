@@ -58,7 +58,7 @@ exports.postRequest = (req, res) => {
       subject: `Binners Project - New Pickup! ${req.user.profile.name}`,
       html: `🎉🎉🎉<br/><br/>
 
-      <em>${req.user.profile.name}</em> created a <a href="http://binners-project.herokuapp.com/requests/admin">new pickup</a>:<br/><br/>
+      <em>${req.user.profile.name}</em> created a <a href="http://binnerproject.org/requests/admin">new pickup</a>:<br/><br/>
 
       User email: ${req.user.email}<br/>
       Address: ${req.body.address}<br/>
