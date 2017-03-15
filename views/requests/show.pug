@@ -6,7 +6,7 @@ block content
       h3 Your Binner pickup requests
       hr
       each request in requests
-        form.form-inline(method='POST')
+        form(method='POST')
           input(type='hidden', name='_csrf', value=_csrf)
           input(type='hidden', name='id', value=request.id)
 
@@ -21,7 +21,6 @@ block content
               .input-group-addon
                 i.fa.fa-user
               input.form-control#name(type='text', name='name', value="no name entered", readonly)
-
           label.sr-only(for="email") Email
           if request.user
             .input-group
@@ -33,22 +32,31 @@ block content
               .input-group-addon
                 i.fa.fa-envelope
               input.form-control(type='textarea', name='email', class='email', value="deleted user", readonly)
-
           label.sr-only(for="address") Address
           .input-group
             .input-group-addon
               i.fa.fa-building
             input.form-control(type='textarea', name='address', class='address', value=request.address)
-          //- .col-sm-2
-          //-   input.form-control(type='text', name='date', class='date', value=request.date)
-          //- .col-sm-2
-          //-   input.form-control(type='text', name='time', class='time', value=request.time)
+          label.sr-only(for="date") Date
+          .input-group
+            .input-group-addon
+              i.fa.fa-calendar
+            input.form-control(type='text', name='date', class='date', value=request.date)
+          label.sr-only(for="time") Time
+          .input-group
+            .input-group-addon
+              i.fa.fa-clock-o
+            input.form-control(type='text', name='time', class='time', value=request.time)
+          label.sr-only(for="time") Time
+          .input-group
+            .input-group-addon
+              i.fa.fa-sticky-note-o
+            input.form-control(type='text', name='note', class='text', value=request.note rows='3')
           //- label.col-sm-8.control-label Note for Binner
           //- label.col-sm-2.control-label # of Containers
           //- label.col-sm-2.control-label Amount Glass
           //- .form-group.row
           //-   .col-sm-8
-          //-     input.form-control(type='text', name='note', class='text', value=request.note)
           //-   .col-sm-2
           //-     input.form-control(type='text', name='amount', class='text', value=request.amount)
           //-   .col-sm-2
@@ -59,13 +67,11 @@ block content
           //-   else if user.admin
           //-     .col-sm-4
           //-       input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
-          .form-group.row
-            .col-sm-6
-              button.btn.btn-primary(formaction='/request/update')
-                i.fa.fa-pencil
-                | Update
-            .col-sm-6
-              button.btn.btn-danger(formaction="/request/delete")
-                i.fa.fa-close
-                | Delete
-            hr
+          .button-group
+            button.btn.btn-primary(formaction='/request/update')
+              i.fa.fa-pencil
+              | Update
+            button.btn.btn-danger(formaction="/request/delete")
+              i.fa.fa-close
+              | Delete
+          hr
