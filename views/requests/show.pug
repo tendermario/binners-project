@@ -10,68 +10,76 @@ block content
           input(type='hidden', name='_csrf', value=_csrf)
           input(type='hidden', name='id', value=request.id)
 
-          label.sr-only(for="name") Name
-          if request.user
+          .col-sm-12
+            label.sr-only(for="name") Name
+            if request.user
+              .input-group
+                .input-group-addon
+                  i.fa.fa-user
+                input.form-control#name(type='text', name='name', value=request.user.profile.name, readonly)
+            else
+              .input-group
+                .input-group-addon
+                  i.fa.fa-user
+                input.form-control#name(type='text', name='name', value="no name entered", readonly)
+          .col-sm-12
+            label.sr-only(for="email") Email
+            if request.user
+              .input-group
+                .input-group-addon
+                  i.fa.fa-envelope-square
+                input.form-control(type='textarea', name='email', class='email', value=request.user.email, readonly)
+            else
+              .input-group
+                .input-group-addon
+                  i.fa.fa-envelope
+                input.form-control(type='textarea', name='email', class='email', value="deleted user", readonly)
+          .col-sm-12
+            label.sr-only(for="address") Address
             .input-group
               .input-group-addon
-                i.fa.fa-user
-              input.form-control#name(type='text', name='name', value=request.user.profile.name, readonly)
-          else
+                i.fa.fa-building
+              input.form-control(type='textarea', name='address', class='address', value=request.address)
+          .col-sm-12
+            label.sr-only(for="date") Date
             .input-group
               .input-group-addon
-                i.fa.fa-user
-              input.form-control#name(type='text', name='name', value="no name entered", readonly)
-          label.sr-only(for="email") Email
-          if request.user
+                i.fa.fa-calendar
+              input.form-control(type='text', name='date', class='date', value=request.date)
+          .col-sm-12
+            label.sr-only(for="time") Time
             .input-group
               .input-group-addon
-                i.fa.fa-envelope-square
-              input.form-control(type='textarea', name='email', class='email', value=request.user.email, readonly)
-          else
+                i.fa.fa-clock-o
+              input.form-control(type='text', name='time', class='time', value=request.time)
+          .col-sm-6
+            label.sr-only(for="amount") # of Containers
             .input-group
               .input-group-addon
-                i.fa.fa-envelope
-              input.form-control(type='textarea', name='email', class='email', value="deleted user", readonly)
-          label.sr-only(for="address") Address
-          .input-group
-            .input-group-addon
-              i.fa.fa-building
-            input.form-control(type='textarea', name='address', class='address', value=request.address)
-          label.sr-only(for="date") Date
-          .input-group
-            .input-group-addon
-              i.fa.fa-calendar
-            input.form-control(type='text', name='date', class='date', value=request.date)
-          label.sr-only(for="time") Time
-          .input-group
-            .input-group-addon
-              i.fa.fa-clock-o
-            input.form-control(type='text', name='time', class='time', value=request.time)
-          label.sr-only(for="time") Time
-          .input-group
-            .input-group-addon
-              i.fa.fa-sticky-note-o
-            input.form-control(type='text', name='note', class='text', value=request.note rows='3')
-          //- label.col-sm-8.control-label Note for Binner
-          //- label.col-sm-2.control-label # of Containers
-          //- label.col-sm-2.control-label Amount Glass
-          //- .form-group.row
-          //-   .col-sm-8
-          //-   .col-sm-2
-          //-     input.form-control(type='text', name='amount', class='text', value=request.amount)
-          //-   .col-sm-2
-          //-     input.form-control(type='text', name='glass', class='text', value=request.glass)
-          //-   if request.binner
-          //-     .col-sm-4
-          //-       input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
-          //-   else if user.admin
-          //-     .col-sm-4
-          //-       input.form-control(type='text', name='assigned', class='assigned', value=request.binner)
-          .button-group
-            button.btn.btn-primary(formaction='/request/update')
-              i.fa.fa-pencil
-              | Update
-            button.btn.btn-danger(formaction="/request/delete")
-              i.fa.fa-close
-              | Delete
-          hr
+                i.fa.fa-beer
+              input.form-control(type='text', name='amount', class='text', value=request.amount)
+          .col-sm-6
+            label.sr-only(for="glass") Amount Glass
+            .input-group
+              .input-group-addon
+                i.fa.fa-flask
+                i.fa.fa-percent
+              input.form-control(type='text', name='glass', class='text', value=request.glass)
+          .col-sm-12
+            label.sr-only(for="note") Note
+            .input-group
+              .input-group-addon
+                i.fa.fa-sticky-note-o
+              input.form-control(type="text", name='note', class='text', value=request.note)
+          .col-sm-12
+            .btn-group.btn-group-justified(role="group")
+              .btn-group(role="group")
+                button.btn.btn-primary(formaction='/request/update')
+                  i.fa.fa-pencil
+                  | Update
+              .btn-group(role="group")
+                button.btn.btn-danger(formaction="/request/delete")
+                  i.fa.fa-close
+                  | Delete
+            hr
+        hr
