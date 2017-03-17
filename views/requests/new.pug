@@ -75,5 +75,26 @@ block content
       .form-group
         .col-sm-3
         .col-sm-7
-          button.col-xs-12.btn.btn-primary(type='submit')
+          button.col-xs-12.btn.btn-primary#submit(type='button' data-toggle="modal" data-target="#myModal")
             | Submit
+
+  // Confirmation modal
+  .modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+    .modal-dialog(role="document")
+      .modal-content
+        .modal-header
+          button.close(data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+          h4.modal-title#myModalLabel
+          | Confirm Pick-up Request 👍
+        .modal-body
+          .address-confirm
+          .date-confirm
+          .time-confirm
+          .amount-confirm
+          .glass-confirm
+          .note-confirm
+          .recurring-confirm
+        .modal-footer
+          button.btn.btn-default(data-dismiss="modal") Edit
+          button.btn.btn-primary Submit
