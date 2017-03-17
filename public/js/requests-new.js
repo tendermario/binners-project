@@ -1,6 +1,7 @@
 $(document).ready( function() {
 
 // Switch hidden class with jQuery's hide
+// Hide is used for jquery slide
 
 $("#amount")
       .hide()
@@ -8,7 +9,7 @@ $("#amount")
 
   // Event Listeners
 
-  // make the 100+ toggle the estimate field
+  // make the 100+ toggle additional estimate field
   $("#amount-small").on("click", () => {
     $("#amount").slideUp(300);
   });
