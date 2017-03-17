@@ -32,13 +32,10 @@ $("#amount")
       let recurring = $("#recurring").val();
       $(".address-confirm").text(`Address: ${address}`);
       $(".date-confirm").text(`Date: ${date}`);
-        
-        // Time: ${time}\n
-        // Amount: ${amount}\n
-        // Glass: ${glass}\n
-        // Note: ${note}\n
-        // Recurring: ${recurring}\n`;
-      
-      // $(".modal-body").text(confirmation);
+      $(".time-confirm").text(`Time: ${time}`);
+      $(".amount-confirm").text(`Amount: ${amount}`);
+      $(".glass-confirm").text(`Glass: ${glass}`);
+      $(".note-confirm").text(`Note: ${note}`);
+      $(".recurring-confirm").text(`Recurring: ${recurring}`);
     });
 });
