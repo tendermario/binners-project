@@ -44,7 +44,7 @@ $("#amount")
       let amount = $("#amount-input").val() || $(".amount.active").text();
       let glass = $("#glass").val();
       let note = $("#note").val();
-      let recurring = $("#recurring").val();
+      let recurring = $("input[name='recurring']:checked").val();
       $(".address-confirm").text(`Address: ${address}`);
       $(".date-confirm").text(`Date: ${date}`);
       $(".time-confirm").text(`Time: ${time}`);
