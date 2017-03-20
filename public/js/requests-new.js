@@ -36,21 +36,26 @@ $("#amount")
     $("#amount-large").addClass("active");
   });
 
-    // input the values from the form into the confirmation modal
-    $("#submit").on("click", () => {
-      let address = $("#address").val();
-      let date = $("#date").val();
-      let time = $("#time").val();
-      let amount = $("#amount-input").val() || $(".amount.active").text();
-      let glass = $("#glass").val();
-      let note = $("#note").val();
-      let recurring = $("input[name='recurring']:checked").val();
-      $(".address-confirm").text(`Address: ${address}`);
-      $(".date-confirm").text(`Date: ${date}`);
-      $(".time-confirm").text(`Time: ${time}`);
-      $(".amount-confirm").text(`Amount: ${amount}`);
-      $(".glass-confirm").text(`Glass: ${glass}`);
-      $(".note-confirm").text(`Note: ${note}`);
-      $(".recurring-confirm").text(`Recurring: ${recurring}`);
-    });
+  // input the values from the form into the confirmation modal
+  $("#submit").on("click", () => {
+    let address = $("#address").val();
+    let date = $("#date").val();
+    let time = $("#time").val();
+    let amount = $("#amount-input").val() || $(".amount.active").text();
+    let glass = $("#glass").val();
+    let note = $("#note").val();
+    let recurring = $("input[name='recurring']:checked").val();
+    $(".address-confirm").text(`Address: ${address}`);
+    $(".date-confirm").text(`Date: ${date}`);
+    $(".time-confirm").text(`Time: ${time}`);
+    $(".amount-confirm").text(`Amount: ${amount}`);
+    $(".glass-confirm").text(`Glass: ${glass}`);
+    $(".note-confirm").text(`Note: ${note}`);
+    $(".recurring-confirm").text(`Recurring: ${recurring}`);
+  });
+
+  // submit the original form from the modal
+  $(".final-submit").on("click", () => {
+    $("#sendform").click();
+  });
 });
