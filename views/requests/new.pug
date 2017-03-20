@@ -36,15 +36,12 @@ block content
       .form-group
         label.col-sm-3.control-label(for='amount') Number of Bottles
         .col-sm-7.col-xs-12.btn-group(data-toggle="buttons")
-          label.btn.btn-primary.btn-block(id="amount-small")
-            input(type="radio" name="amount" value="15-50")
-            | 15-50
-          label.btn.btn-primary.btn-block(id="amount-medium")
-            input(type="radio" name="amount" value="51-100")
-            | 51-100
-          label.btn.btn-primary.btn-block(id="amount-large")
-            input(type="radio" name="amount" value="100+")
-            | 100+
+          label.btn.btn-primary.btn-block.amount 15-50
+            input(type="radio" name="amount" id="amount-small" value="15-50")
+          label.btn.btn-primary.btn-block.amount 51-100
+            input(type="radio" name="amount" id="amount-medium" value="51-100")
+          label.btn.btn-primary.btn-block.amount 100+
+            input(type="radio" name="amount" id="amount-large" value="100+")
       .form-group.hidden(id="amount")
         label.col-sm-3.control-label(for='amount') Estimated amount
         .col-sm-7

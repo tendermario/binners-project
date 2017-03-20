@@ -27,7 +27,7 @@ $("#amount")
       let address = $("#address").val();
       let date = $("#date").val();
       let time = $("#time").val();
-      let amount = $("#amount").val();
+      let amount = $("#amount-input").val();
       let glass = $("#glass").val();
       let note = $("#note").val();
       let recurring = $("#recurring").val();
