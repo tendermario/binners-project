@@ -71,6 +71,13 @@ block content
               .input-group-addon
                 i.fa.fa-sticky-note-o
               input.form-control(type="text", name='note', class='text', value=request.note)
+          if (request.recurring === "Yes")
+            .col-sm-12
+              label.sr-only(for="recurring") Recurring
+              .input-group
+                .input-group-addon
+                  i.fa.fa-heart
+                input.form-control.recurring(type="text", name='note', class='text', value="Recurring Pickup")
           .col-sm-12
             .btn-group.btn-group-justified(role="group")
               .btn-group(role="group")
