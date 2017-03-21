@@ -6,8 +6,7 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/')
-        | Binners' Project
+      a.navbar-brand(href='/') Binners' Pick-Up
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li(class=(title == 'New') ? 'active' : undefined)
@@ -19,6 +18,8 @@
           if user.admin
             li(class=(title == 'All Requests') ? 'active' : undefined)
               a(href='/requests/admin') All Requests
+        li
+          a(href='http://www.binnersproject.org/') Back to Binners' Project
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=(title == 'Login') ? 'active' : undefined)
