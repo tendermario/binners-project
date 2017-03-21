@@ -29,6 +29,7 @@ body {
   padding-top: 60px;
   margin-bottom: 75px;
   font-family: "gotham med", "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #e5e5e5;
 }
 
 footer {
@@ -53,11 +54,29 @@ textarea {
 // Navbar
 // -------------------------
 
+
+$navbar-default-link-hover-color: green;
+$navbar-default-link-active-color: green;
+
 .navbar-nav img {
   width: 30px;
   height: 30px;
   margin: -15px 15px -15px;
 }
+
+.navbar-default {
+  background-color: black;
+  margin-top: 5px;
+  padding: 5px;
+  .navbar-brand {
+    color: white;
+  }
+  .navbar-nav > li > a {
+      color: white;
+  }
+}
+
+
 
 // Alerts
 // -------------------------
