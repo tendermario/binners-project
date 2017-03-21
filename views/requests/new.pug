@@ -71,6 +71,10 @@ block content
             input(type="radio" name="recurring" value="Yes")
             | Yes
       .form-group
+        label.col-sm-3.control-label(for='phone') Phone # (Optional)
+        .col-sm-7
+          input.form-control(type='phone' name='phone' id='phone' placeholder='555-123-1234')
+      .form-group
         .col-sm-3
         .col-sm-7
           button.hidden#sendform(type='submit')
@@ -93,6 +97,7 @@ block content
           .glass-confirm
           .note-confirm
           .recurring-confirm
+          .phone-confirm
         .modal-footer
           button.btn.btn-default(data-dismiss="modal") Edit
           button.btn.btn-primary.final-submit(type="submit" data-dismiss="modal") Submit

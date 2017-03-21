@@ -45,6 +45,7 @@ $("#amount")
     let glass = $("#glass").val();
     let note = $("#note").val();
     let recurring = $("input[name='recurring']:checked").val();
+    let phone = $("#phone").val();
     $(".address-confirm").text(`Address: ${address}`);
     $(".date-confirm").text(`Date: ${date}`);
     $(".time-confirm").text(`Time: ${time}`);
@@ -52,6 +53,7 @@ $("#amount")
     $(".glass-confirm").text(`Glass: ${glass}`);
     $(".note-confirm").text(`Note: ${note}`);
     $(".recurring-confirm").text(`Recurring: ${recurring}`);
+    $(".phone-confirm").text(`Phone number: ${phone}`);
   });
 
   // submit the original form from the modal

@@ -35,6 +35,12 @@ block content
                   i.fa.fa-envelope
                 input.form-control(type='textarea', name='email', class='email', value="deleted user", readonly)
           .col-sm-12
+            label.sr-only(for="address") Phone Number
+            .input-group
+              .input-group-addon
+                i.fa.fa-phone
+              input.form-control(type='textarea', name='phone', class='phone', value=request.phone)
+          .col-sm-12
             label.sr-only(for="address") Address
             .input-group
               .input-group-addon
