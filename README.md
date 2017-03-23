@@ -1,4 +1,4 @@
-#Binners Project WebApp
+# Binners Project WebApp
 
 The Binners' Project started with an experimental initiative grant from the J.W. McConnell Family Foundation in 2014. It was initiated in Vancouver and Montreal by Ken Lyotier, founder and former Executive Director of United We Can.
 
@@ -8,7 +8,7 @@ Last year, Ken passed on the leadership to Anna Godefroy, who worked with him si
 
 http://binnersproject.org/
 
-##To Join Project
+## To Join Project
 
 1. Fork repo
 2. In the root folder run:
