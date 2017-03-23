@@ -2,9 +2,9 @@
 
 The Binners' Project started with an experimental initiative grant from the J.W. McConnell Family Foundation in 2014. It was initiated in Vancouver and Montreal by Ken Lyotier, founder and former Executive Director of United We Can.
 
-Last year, Ken passed on the leadership to Anna Godefroy, who worked with him since the project’s inception. With the launch of three pilot programs in 2015, the Binners’ Project has since evolved into an innovative social and economic initiative dedicated to working with and for binners.
+In 2015, Ken passed on the leadership to Anna Godefroy, who worked with him since the project’s inception. With the launch of multiple pilot programs, the Binners’ Project has since evolved into an innovative social and economic initiative dedicated to working with and for binners.
 
-​Today the Binners’ Project features a Core Group of Binners, a Steering Committee, and two full-time staff members. They also regularly provide practicum positions for students.
+​Today the Binners’ Project features a Core Group of Binners, a Steering Committee, and full-time staff. They also regularly provide practicum positions for students.
 
 http://binnersproject.org/
 
