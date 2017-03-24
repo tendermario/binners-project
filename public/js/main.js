@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
-  // Place JavaScript code here...
+  $('#about')
+    .hide()
+    .removeClass('hidden');
+
+  $('#faq').on("click", () => {
+    $('#about').slideToggle();
+  })
 
 });

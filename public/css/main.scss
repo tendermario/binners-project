@@ -68,7 +68,7 @@ textarea {
   background-color: black;
   padding: 5px;
   border-top: 5px solid #45b33d;
-  
+
   .navbar-brand {
     color: white;
   }
@@ -77,6 +77,33 @@ textarea {
   }
 }
 
+#faq {
+  cursor: pointer;
+  color: #45b33d;
+  font-size: 1.3em;
+}
+
+.about-container {
+  z-index: 1;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+#about {
+  // position: absolute;
+  border: 5px solid #45b33d;
+  width: auto;
+  background-color: #369a3f;
+
+  display: flex;
+  justify-content: center;
+}
+
+// .container {
+//   border: 2px dotted #fff;
+// }
 
 
 // Alerts
