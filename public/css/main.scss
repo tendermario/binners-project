@@ -109,14 +109,13 @@ textarea {
 }
 
 .about-img-space {
-  height: 620px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 360px;
 }
 
 #about {
-  // position: absolute;
   border: 5px solid #45b33d;
   width: auto;
   background-color: #369a3f;
