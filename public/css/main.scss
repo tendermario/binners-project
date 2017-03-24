@@ -118,10 +118,13 @@ textarea {
   justify-content: center;
 }
 
-// .container {
-//   border: 2px dotted #fff;
-// }
-
+.faq-nav {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  margin: 0.2em;
+  font-size: 1.5em;
+}
 
 // Alerts
 // -------------------------
