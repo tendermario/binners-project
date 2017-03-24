@@ -31,17 +31,17 @@ $(document).ready(function() {
     switch (progress) {
       case 25:
         $('#nav-back').hide();
-        $('.about-img').attr('src', "images/about-1.png");
+        $('.about-img').attr('src', "http://binnerpickup.org/images/about-1.png");
         break;
       case 50:
         $('#nav-back').show();
-        $('.about-img').attr('src', "images/about-2.png");
+        $('.about-img').attr('src', "http://binnerpickup.org/images/about-2.png");
         break;
       case 75:
-        $('.about-img').attr('src', "images/about-3.png");
+        $('.about-img').attr('src', "http://binnerpickup.org/images/about-3.png");
         break;
       case 100:
-        $('.about-img').attr('src', "images/about-4.png");
+        $('.about-img').attr('src', "http://binnerpickup.org/images/about-4.png");
         break;
       case 125:
         $('#about').slideToggle(() => {
