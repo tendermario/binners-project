@@ -53,8 +53,9 @@ exports.postRequest = (req, res) => {
     if (err) { return next(err); }
 
   const mailOptions = {
-      to: ['gabby.korcheva@binnersproject.org', 'marviens@gmail.com'],
-      from: '"Binners Project" <info@binnersproject.org>',
+      to: 'info@binnersproject.org',
+      cc: 'gabby.korcheva@binnersproject.org',
+      from: `"Binners' Project" <info@binnersproject.org>`,
       subject: `Binners Project - New Pickup! ${req.user.profile.name}`,
       html: `🎉🎉🎉<br/><br/>
 

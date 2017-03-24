@@ -1,6 +1,6 @@
 {
   "name": "binners-project",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Stand-alone web-based applications that connects users donating bottles to binners that collect them. http://binnersproject.org/",
   "repository": {
     "type": "git",
