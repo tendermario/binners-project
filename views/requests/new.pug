@@ -18,7 +18,7 @@ block content
       - }
       - var y = date.getFullYear(date);
       - var day = y + "-" + m + "-" + d;
-      h3 Create a new binners pickup request
+      h3.text-center New Request
     form.form-horizontal(id='request', method='POST')
       input(type='hidden', name='_csrf', value=_csrf)
       .form-group
@@ -71,9 +71,9 @@ block content
             input(type="radio" name="recurring" value="Yes")
             | Yes
       .form-group
-        label.col-sm-3.control-label(for='phone') Phone # (Optional)
+        label.col-sm-3.control-label(for='phone') Phone #
         .col-sm-7
-          input.form-control(type='phone' name='phone' id='phone' placeholder='555-123-1234')
+          input.form-control(type='phone' name='phone' id='phone' placeholder='555-123-1234' required)
       .form-group
         .col-sm-3
         .col-sm-7
