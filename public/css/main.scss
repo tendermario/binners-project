@@ -69,6 +69,18 @@ textarea {
   }
 }
 
+.navbar-nav {
+  display: flex;
+
+  img {
+    align-self: center;
+    width: 35px;
+    height: 35px;
+    margin: -15px 15px -15px;
+    border-radius: 50%;
+  }
+}
+
 .navbar-default {
   background-color: black;
   padding: 5px;
