@@ -6,10 +6,13 @@ $(document).ready(function() {
 
   $('#faq').on("click", () => {
     $('#about').slideToggle();
+
+    $('#nav-back')
+    .hide()
+    .removeClass('hidden');
   });
 
   $('#nav-forward').on("click", () => {
-    $('#nav-back').removeClass("hidden");
     let progress = Number($('.progress-bar').attr('aria-valuenow'));
     progress += 25;
     showPage(progress);
@@ -22,13 +25,29 @@ $(document).ready(function() {
   });
 
   function showPage(progress) {
+    $('.progress-bar span').text(`${progress} Complete`);
+    $('.progress-bar').attr('aria-valuenow', progress);
+    $('.progress-bar').attr('style', `width: ${progress}%`);
     switch (progress) {
       case 25:
-        $('.progress-bar span').text(`${progress} Complete`);
-        $('.progress-bar').attr('aria-valuenow', progress);
+        $('#nav-back').hide();
+        $('.about-img').attr('src', "images/about-1.png");
+        break;
       case 50:
+        $('#nav-back').show();
+        $('.about-img').attr('src', "images/about-2.png");
+        break;
       case 75:
+        $('.about-img').attr('src', "images/about-3.png");
+        break;
       case 100:
+        $('.about-img').attr('src', "images/about-4.png");
+        break;
+      case 125:
+        $('#about').slideToggle(() => {
+          showPage(25);
+        });
+        break;
     }
   }
 });
